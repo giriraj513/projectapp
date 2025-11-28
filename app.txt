@@ -1,8 +1,60 @@
-giru bhai 
-giriraj singh jhala
-jon the done
-ctrl+s
-rahul chor
-champak chor
-lalu bhai
-101
+# WAP design a python code with the following menu options
+#1.application opner 1.1.open word,open excel,open calc,open note paid
+#2.web opner 2.1.open google with search 2.2.open youtube with topic
+#3.open wikipedia with topic
+#4. sentence reader(user will input any sentence it will speak by the system
+#5. sent whatshapp msg (msg must be sen t on enter number)
+import webbrowser
+import urllib.parse
+import pyttsx3
+import os
+
+print("1.applications.")
+print("2.web opner.")
+print("3.sentence reader.")
+print("4.sent whatsapp message.")
+choice=int(input("enter your choice:"))
+if choice==1:
+    print("1.ope word.")
+    print("2.open excel.")
+    print("3.open calculator.")
+    print("4.open notepad.")
+    n=int(input("enter your choice:"))
+    if n==1:
+        os.startfile("winword")
+    elif n==2:
+        os.startfile("excel")
+    elif n==3:
+        os.startfile("calc")
+    elif n==4:
+        os.startfile("notepad")
+    else:
+        print("Invalid choice.")
+elif choice==2:
+    print("1.search topic on google.")
+    print("2.search topic on youtube.")
+    print("3.search topic on wikipedia.")
+    n=int(input("enter your choice:"))
+    if n==1:
+        x=input("enter your topic name:")
+        webbrowser.open(f"https://www.google.com/search?q={x}")
+    elif n==2:
+        x=input("enter your topic name:")
+        webbrowser.open(f"https://www.youtube.com/results?search_query={x}")
+    elif n==3:
+        x=input("enter your topic name:")
+        webbrowser.open(f"https://en.wikipedia.org/wiki/{x}")
+    else:
+        print("invalid choice.")
+elif choice==3:
+    x=input("enter your sentences to hear:")
+    from pyttsx3 import *
+    speak(x)
+elif choice==4:
+    import webbrowser, urllib.parse
+    x = input("enter your message: ")
+    y = input("enter the number: ")
+    webbrowser.open(f"https://wa.me/91{y}?text={urllib.parse.quote(x)}")
+
+else:
+    print("no more options.")
